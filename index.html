@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h1>Faculty Management System</h1>
+                    <p>University Portal</p>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="faculty@university.edu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+                <div class="login-footer">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboardPage" class="page">
+        <!-- Header Navigation -->
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-brand">
+                    <h2>Faculty Portal</h2>
+                </div>
+                <div class="navbar-menu">
+                    <span id="facultyName" class="faculty-info">Dr. John Doe</span>
+                    <button id="logoutBtn" class="btn-logout">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sidebar Navigation -->
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <div class="sidebar-menu">
+                    <ul>
+                        <li><a href="#" class="menu-item active" data-tab="dashboard">Dashboard</a></li>
+                        <li><a href="#" class="menu-item" data-tab="subjects">My Subjects</a></li>
+                        <li><a href="#" class="menu-item" data-tab="timetable">Timetable</a></li>
+                        <li><a href="#" class="menu-item" data-tab="attendance">Attendance</a></li>
+                        <li><a href="#" class="menu-item" data-tab="leave">Leave Request</a></li>
+                        <li><a href="#" class="menu-item" data-tab="materials">Study Materials</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Dashboard Overview -->
+                <div id="dashboard" class="tab-content active">
+                    <div class="page-header">
+                        <h1>Welcome, Dr. John Doe</h1>
+                        <p>Faculty ID: FAC-2024-001</p>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <!-- Stats Cards -->
+                        <div class="stat-card">
+                            <div class="stat-icon subjects">📚</div>
+                            <div class="stat-info">
+                                <h3>3</h3>
+                                <p>Subjects Assigned</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon classes">👥</div>
+                            <div class="stat-info">
+                                <h3>156</h3>
+                                <p>Total Students</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon attendance">✓</div>
+                            <div class="stat-info">
+                                <h3>94%</h3>
+                                <p>Avg Attendance</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon materials">📄</div>
+                            <div class="stat-info">
+                                <h3>12</h3>
+                                <p>Materials Uploaded</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h2>Quick Actions</h2>
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="switchTab('attendance')">
+                                <span class="action-icon">✓</span>
+                                Mark Attendance
+                            </button>
+                            <button class="action-btn" onclick="switchTab('leave')">
+                                <span class="action-icon">📋</span>
+                                Apply Leave
+                            </button>
+                            <button class="action-btn" onclick="switchTab('materials')">
+                                <span class="action-icon">📤</span>
+                                Upload Materials
+                            </button>
+                            <button class="action-btn" onclick="switchTab('timetable')">
+                                <span class="action-icon">⏰</span>
+                                View Timetable
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Today's Schedule -->
+                    <div class="schedule-section">
+                        <h2>Today's Schedule</h2>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <div class="schedule-time">10:00 AM - 11:30 AM</div>
+                                <div class="schedule-details">
+                                    <h4>Data Structures</h4>
+                                    <p>Classroom: Lab A1 | Batch: CSE-2nd Sem</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">01:00 PM - 02:30 PM</div>
+                                <div class="schedule-details">
+                                    <h4>Web Development</h4>
+                                    <p>Classroom: Lab B2 | Batch: CSE-2nd Sem</p>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">03:00 PM - 04:00 PM</div>
+                                <div class="schedule-details">
+                                    <h4>Office Hours</h4>
+                                    <p>Location: Office 405 | Available for student consultation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Subjects -->
+                <div id="subjects" class="tab-content">
+                    <div class="page-header">
+                        <h1>My Subjects</h1>
+                    </div>
+                    <div class="subjects-grid">
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <h3>Data Structures</h3>
+                                <span class="code">CS201</span>
+                            </div>
+                            <div class="subject-details">
+                                <p><strong>Semester:</strong> 2nd</p>
+                                <p><strong>Batch:</strong> CSE-A, CSE-B</p>
+                                <p><strong>Students:</strong> 65</p>
+                                <p><strong>Credits:</strong> 3</p>
+                                <p><strong>Classroom:</strong> Lab A1</p>
+                            </div>
+                            <div class="subject-actions">
+                                <button class="btn-small">View Class</button>
+                                <button class="btn-small">Attendance</button>
+                            </div>
+                        </div>
+
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <h3>Web Development</h3>
+                                <span class="code">CS202</span>
+                            </div>
+                            <div class="subject-details">
+                                <p><strong>Semester:</strong> 2nd</p>
+                                <p><strong>Batch:</strong> CSE-A, CSE-B</p>
+                                <p><strong>Students:</strong> 48</p>
+                                <p><strong>Credits:</strong> 3</p>
+                                <p><strong>Classroom:</strong> Lab B2</p>
+                            </div>
+                            <div class="subject-actions">
+                                <button class="btn-small">View Class</button>
+                                <button class="btn-small">Attendance</button>
+                            </div>
+                        </div>
+
+                        <div class="subject-card">
+                            <div class="subject-header">
+                                <h3>Database Management</h3>
+                                <span class="code">CS203</span>
+                            </div>
+                            <div class="subject-details">
+                                <p><strong>Semester:</strong> 2nd</p>
+                                <p><strong>Batch:</strong> CSE-A</p>
+                                <p><strong>Students:</strong> 43</p>
+                                <p><strong>Credits:</strong> 4</p>
+                                <p><strong>Classroom:</strong> Lab C1</p>
+                            </div>
+                            <div class="subject-actions">
+                                <button class="btn-small">View Class</button>
+                                <button class="btn-small">Attendance</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timetable -->
+                <div id="timetable" class="tab-content">
+                    <div class="page-header">
+                        <h1>Weekly Timetable</h1>
+                    </div>
+                    <div class="timetable-wrapper">
+                        <table class="timetable">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>10:00-11:30</strong></td>
+                                    <td class="class-slot">Data Structures<br><small>Lab A1</small></td>
+                                    <td class="class-slot">Web Development<br><small>Lab B2</small></td>
+                                    <td class="class-slot">Database<br><small>Lab C1</small></td>
+                                    <td class="class-slot">Data Structures<br><small>Lab A1</small></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>12:00-01:00</strong></td>
+                                    <td></td>
+                                    <td class="class-slot">Database<br><small>Lab C1</small></td>
+                                    <td class="class-slot">Web Development<br><small>Lab B2</small></td>
+                                    <td></td>
+                                    <td class="class-slot">Web Development<br><small>Lab B2</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>01:00-02:30</strong></td>
+                                    <td></td>
+                                    <td class="class-slot">Data Structures<br><small>Lab A1</small></td>
+                                    <td class="class-slot">Database<br><small>Lab C1</small></td>
+                                    <td class="class-slot">Web Development<br><small>Lab B2</small></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>03:00-04:00</strong></td>
+                                    <td colspan="5" class="office-hours">Office Hours / Lab Assistance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Attendance -->
+                <div id="attendance" class="tab-content">
+                    <div class="page-header">
+                        <h1>Mark Attendance</h1>
+                    </div>
+                    <div class="attendance-container">
+                        <div class="attendance-selector">
+                            <label for="attendanceSubject">Select Subject:</label>
+                            <select id="attendanceSubject">
+                                <option value="">-- Choose Subject --</option>
+                                <option value="CS201">Data Structures (CS201)</option>
+                                <option value="CS202">Web Development (CS202)</option>
+                                <option value="CS203">Database Management (CS203)</option>
+                            </select>
+
+                            <label for="attendanceDate">Select Date:</label>
+                            <input type="date" id="attendanceDate">
+
+                            <button class="btn-primary" onclick="loadAttendanceList()">Load Students</button>
+                        </div>
+
+                        <div id="attendanceList" class="attendance-list" style="display:none;">
+                            <h3>Class: Data Structures | Date: 28-01-2026</h3>
+                            <div class="attendance-table-wrapper">
+                                <table class="attendance-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Roll No.</th>
+                                            <th>Student Name</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>001</td>
+                                            <td>Aarav Singh</td>
+                                            <td><input type="radio" name="status_001" value="present"> Present
+                                                <input type="radio" name="status_001" value="absent"> Absent
+                                                <input type="radio" name="status_001" value="leave"> Leave</td>
+                                        </tr>
+                                        <tr>
+                                            <td>002</td>
+                                            <td>Bhavna Sharma</td>
+                                            <td><input type="radio" name="status_002" value="present"> Present
+                                                <input type="radio" name="status_002" value="absent"> Absent
+                                                <input type="radio" name="status_002" value="leave"> Leave</td>
+                                        </tr>
+                                        <tr>
+                                            <td>003</td>
+                                            <td>Chitra Verma</td>
+                                            <td><input type="radio" name="status_003" value="present"> Present
+                                                <input type="radio" name="status_003" value="absent"> Absent
+                                                <input type="radio" name="status_003" value="leave"> Leave</td>
+                                        </tr>
+                                        <tr>
+                                            <td>004</td>
+                                            <td>Deepak Kumar</td>
+                                            <td><input type="radio" name="status_004" value="present"> Present
+                                                <input type="radio" name="status_004" value="absent"> Absent
+                                                <input type="radio" name="status_004" value="leave"> Leave</td>
+                                        </tr>
+                                        <tr>
+                                            <td>005</td>
+                                            <td>Esha Gupta</td>
+                                            <td><input type="radio" name="status_005" value="present"> Present
+                                                <input type="radio" name="status_005" value="absent"> Absent
+                                                <input type="radio" name="status_005" value="leave"> Leave</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="attendance-actions">
+                                <button class="btn-primary" onclick="saveAttendance()">Save Attendance</button>
+                                <button class="btn-secondary" onclick="resetAttendance()">Clear Selections</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leave Request -->
+                <div id="leave" class="tab-content">
+                    <div class="page-header">
+                        <h1>Leave Request</h1>
+                    </div>
+                    <div class="leave-container">
+                        <div class="leave-form">
+                            <h3>New Leave Request</h3>
+                            <form id="leaveForm" onsubmit="submitLeaveRequest(event)">
+                                <div class="form-group">
+                                    <label for="leaveType">Leave Type:</label>
+                                    <select id="leaveType" required>
+                                        <option value="">-- Select Leave Type --</option>
+                                        <option value="sick">Sick Leave</option>
+                                        <option value="casual">Casual Leave</option>
+                                        <option value="earned">Earned Leave</option>
+                                        <option value="special">Special Leave</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fromDate">From Date:</label>
+                                        <input type="date" id="fromDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="toDate">To Date:</label>
+                                        <input type="date" id="toDate" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="days">Number of Days:</label>
+                                    <input type="number" id="days" readonly>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reason">Reason:</label>
+                                    <textarea id="reason" rows="4" placeholder="Enter reason for leave" required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="coverage">Assigned Coverage Faculty:</label>
+                                    <select id="coverage" required>
+                                        <option value="">-- Assign Faculty --</option>
+                                        <option value="prof1">Prof. Sarah Johnson</option>
+                                        <option value="prof2">Prof. Michael Brown</option>
+                                        <option value="prof3">Prof. Emma Wilson</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn-primary">Submit Request</button>
+                            </form>
+                        </div>
+
+                        <div class="leave-history">
+                            <h3>Leave History</h3>
+                            <div class="leave-list">
+                                <div class="leave-item approved">
+                                    <div class="leave-header">
+                                        <h4>Casual Leave</h4>
+                                        <span class="status-badge approved">Approved</span>
+                                    </div>
+                                    <p>15-01-2026 to 17-01-2026 (3 days)</p>
+                                    <p class="reason">Family function</p>
+                                </div>
+                                <div class="leave-item pending">
+                                    <div class="leave-header">
+                                        <h4>Sick Leave</h4>
+                                        <span class="status-badge pending">Pending</span>
+                                    </div>
+                                    <p>25-01-2026 to 26-01-2026 (2 days)</p>
+                                    <p class="reason">Medical appointment</p>
+                                </div>
+                                <div class="leave-item rejected">
+                                    <div class="leave-header">
+                                        <h4>Earned Leave</h4>
+                                        <span class="status-badge rejected">Rejected</span>
+                                    </div>
+                                    <p>10-01-2026 to 14-01-2026 (5 days)</p>
+                                    <p class="reason">Vacation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Study Materials -->
+                <div id="materials" class="tab-content">
+                    <div class="page-header">
+                        <h1>Study Materials</h1>
+                    </div>
+                    <div class="materials-container">
+                        <div class="upload-section">
+                            <h3>Upload New Material</h3>
+                            <form id="uploadForm" onsubmit="handleUpload(event)">
+                                <div class="form-group">
+                                    <label for="materialSubject">Select Subject:</label>
+                                    <select id="materialSubject" required>
+                                        <option value="">-- Choose Subject --</option>
+                                        <option value="CS201">Data Structures (CS201)</option>
+                                        <option value="CS202">Web Development (CS202)</option>
+                                        <option value="CS203">Database Management (CS203)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="materialType">Material Type:</label>
+                                    <select id="materialType" required>
+                                        <option value="">-- Choose Type --</option>
+                                        <option value="lecture">Lecture Notes</option>
+                                        <option value="assignment">Assignment</option>
+                                        <option value="slides">Presentation Slides</option>
+                                        <option value="video">Video Link</option>
+                                        <option value="resource">Reference Material</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="materialName">Material Title:</label>
+                                    <input type="text" id="materialName" placeholder="e.g., Unit-1 Introduction" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="materialFile">Upload File:</label>
+                                    <div class="file-input-wrapper">
+                                        <input type="file" id="materialFile" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt" required>
+                                        <span class="file-label">Choose PDF, Doc, or Presentation</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="materialDescription">Description:</label>
+                                    <textarea id="materialDescription" rows="3" placeholder="Brief description of the material"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn-primary">Upload Material</button>
+                            </form>
+                        </div>
+
+                        <div class="materials-list">
+                            <h3>Previously Uploaded Materials</h3>
+                            <div class="materials-group">
+                                <h4 class="subject-header">Data Structures (CS201)</h4>
+                                <div class="material-item">
+                                    <div class="material-icon">📄</div>
+                                    <div class="material-info">
+                                        <h5>Unit-1 Introduction to Data Structures</h5>
+                                        <p>Type: Lecture Notes | Uploaded: 20-01-2026</p>
+                                        <p>Downloaded: 45 times</p>
+                                    </div>
+                                    <div class="material-actions">
+                                        <button class="btn-small">Download</button>
+                                        <button class="btn-small delete">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="material-item">
+                                    <div class="material-icon">📊</div>
+                                    <div class="material-info">
+                                        <h5>Arrays and Linked Lists - Slides</h5>
+                                        <p>Type: Presentation Slides | Uploaded: 18-01-2026</p>
+                                        <p>Downloaded: 52 times</p>
+                                    </div>
+                                    <div class="material-actions">
+                                        <button class="btn-small">Download</button>
+                                        <button class="btn-small delete">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="materials-group">
+                                <h4 class="subject-header">Web Development (CS202)</h4>
+                                <div class="material-item">
+                                    <div class="material-icon">📄</div>
+                                    <div class="material-info">
+                                        <h5>HTML5 & CSS3 Fundamentals</h5>
+                                        <p>Type: Lecture Notes | Uploaded: 22-01-2026</p>
+                                        <p>Downloaded: 38 times</p>
+                                    </div>
+                                    <div class="material-actions">
+                                        <button class="btn-small">Download</button>
+                                        <button class="btn-small delete">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="material-item">
+                                    <div class="material-icon">📋</div>
+                                    <div class="material-info">
+                                        <h5>Assignment-1: Portfolio Website</h5>
+                                        <p>Type: Assignment | Uploaded: 21-01-2026</p>
+                                        <p>Downloaded: 65 times</p>
+                                    </div>
+                                    <div class="material-actions">
+                                        <button class="btn-small">Download</button>
+                                        <button class="btn-small delete">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
