@@ -1,21 +1,13 @@
-document.getElementById("tantrazForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+const form = document.getElementById("form");
+const success = document.getElementById("success");
 
-    const formData = new FormData(this);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    const data = {
-        fullName: formData.get("fullName"),
-        email: formData.get("email"),
-        whatsapp: formData.get("whatsapp"),
-        department: formData.get("department"),
-        year: formData.get("year"),
-        gender: formData.get("gender"),
-        college: formData.get("college"),
-        category: formData.get("category"),
-    };
+  success.classList.add("active");
 
-    console.log("Registration Data:", data);
-
-    document.getElementById("successMsg").innerText = "Registered successfully! 🎉";
-    this.reset();
+  setTimeout(() => {
+    success.classList.remove("active");
+    form.reset();
+  }, 3000);
 });
