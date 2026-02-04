@@ -3,28 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tantraz 2026 Registration</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section>
-        <div>
-            <form action="/submit">
-                <label for="user-name"></label>
-                <input id="user-name" type="text" placeholder="Name">
-                <label for="user-email"></label>
-                <input id="user-email" type="email" placeholder="Enter your email">
-                <label for="user-ph"></label>
-                <input id="user-num" type="number" placeholder="Phone number">
-                <label for="user-add"></label>
-                <input id="user-add" type="text" placeholder="Address">
-                <label for="user-city"></label>
-                <input id="user-city" type="text" placeholder="City">
-                <label for="user-state"></label>
-                <input id="user-state" type="text" placeholder="State">
-                <label for="user-zip"></label>
-                <input id="user-zip" type="number" placeholder="ZIP Code">
-            </form>
-        </div>
-    </section>
+
+    <div class="form-container">
+        <h1>Register for <span class="event-name">Tantraz '26</span></h1>
+
+        <form id="tantrazForm">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- WhatsApp Number -->
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp Number *</label>
+                <input type="tel" id="whatsapp" name="whatsapp" required minlength="10">
+            </div>
+
+            <!-- Department -->
+            <div class="form-group">
+                <label for="department">Department *</label>
+                <input type="text" id="department" name="department" required>
+            </div>
+
+            <!-- Year -->
+            <div class="form-group">
+                <label for="year">Year *</label>
+                <select id="year" name="year" required>
+                    <option value="">Select Year</option>
+                    <option value="1st">1st</option>
+                    <option value="2nd">2nd</option>
+                    <option value="3rd">3rd</option>
+                    <option value="4th">4th</option>
+                </select>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label>Gender *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+            </div>
+
+            <!-- College Name -->
+            <div class="form-group">
+                <label for="college">College Name *</label>
+                <input type="text" id="college" name="college" required>
+            </div>
+
+            <!-- Category -->
+            <div class="form-group">
+                <label for="category">Category *</label>
+                <select id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Internal">Internal (₹150)</option>
+                    <option value="External">External (₹200)</option>
+                    <option value="Team Event">Team Event (₹500)</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Registration</button>
+        </form>
+        <p id="successMsg" class="success-message"></p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
