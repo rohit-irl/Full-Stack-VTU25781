@@ -30,6 +30,31 @@
                     </div>
                     <button type="submit" class="btn-primary">Sign In</button>
                 </form>
+                <div class="signup-toggle">
+                    <p>Don't have an account? <a href="#" id="showSignup">Sign Up</a></p>
+                </div>
+
+                <!-- Signup Form (hidden by default) -->
+                <form id="signupForm" style="display:none; margin-top:12px;">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="faculty@university.edu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirm">Confirm Password</label>
+                        <input type="password" id="signupConfirm" placeholder="Confirm password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                    <div style="margin-top:8px;"><a href="#" id="cancelSignup">Back to Sign In</a></div>
+                </form>
                 <div class="login-footer">
                     <a href="#">Forgot Password?</a>
                 </div>

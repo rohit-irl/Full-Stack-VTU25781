@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Portfolio of Rohit - Frontend Developer & CSE Student">
+    <title>Rohit | Professional Portfolio</title>
+
+    <!-- Google Fonts - Poppins for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER & NAVIGATION ================= -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo/Brand -->
+            <div class="logo">Rohit<span class="dot">.</span></div>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================= HOME / HERO SECTION ================= -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <!-- Profile Image -->
+            <img src="/Portfolio/profile.jpg" 
+                 alt="Rohit - Frontend Developer" 
+                 class="profile-img">
+            
+            <!-- Hero Text -->
+            <h1 class="hero-title">Hi, I'm Rohit</h1>
+            <p class="hero-subtitle">Full-Stack Web Developer | UI/UX Enthusiast | CSE Student</p>
+            
+            <!-- Call-to-Action Button -->
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="about">
+        <div class="section-container">
+            <h2 class="section-title">About Me</h2>
+            
+            <!-- About Content Container -->
+            <div class="about-content">
+                <!-- Bio Section -->
+                <article class="about-bio">
+                    <h3>Who Am I?</h3>
+                    <p>
+                        I'm a passionate Computer Science student and aspiring full-stack developer 
+                        based in India. I specialize in creating responsive, user-friendly web applications 
+                        with clean, maintainable code. I'm driven by the enthusiasm to learn new technologies 
+                        and solve real-world problems.
+                    </p>
+                    <p>
+                        When I'm not coding, I enjoy exploring design trends, contributing to open-source 
+                        projects, and sharing knowledge with the developer community.
+                    </p>
+                </article>
+
+                <!-- Skills Section -->
+                <article class="about-skills">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-container">
+                        <!-- Frontend Skills -->
+                        <div class="skill-group">
+                            <h4>Frontend</h4>
+                            <ul class="skills-list">
+                                <li class="skill-tag">HTML5</li>
+                                <li class="skill-tag">CSS3</li>
+                                <li class="skill-tag">JavaScript</li>
+                                <li class="skill-tag">Responsive Design</li>
+                            </ul>
+                        </div>
+
+                        <!-- Backend Skills -->
+                        <div class="skill-group">
+                            <h4>Backend</h4>
+                            <ul class="skills-list">
+                                <li class="skill-tag">Java</li>
+                                <li class="skill-tag">Python</li>
+                                <li class="skill-tag">Spring Boot</li>
+                                <li class="skill-tag">REST APIs</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tools & Platforms -->
+                        <div class="skill-group">
+                            <h4>Tools & Platforms</h4>
+                            <ul class="skills-list">
+                                <li class="skill-tag">Git & GitHub</li>
+                                <li class="skill-tag">VS Code</li>
+                                <li class="skill-tag">MySQL</li>
+                                <li class="skill-tag">Figma</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PROJECTS SECTION ================= -->
+    <section id="projects" class="projects">
+        <div class="section-container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Check out some of my recent work and projects</p>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+
+                <!-- Project Card 1 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://via.placeholder.com/400x250/3b82f6/ffffff?text=Portfolio+Website" 
+                             alt="Personal Portfolio Website">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Live</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Personal Portfolio</h3>
+                        <p class="project-description">
+                            A fully responsive personal portfolio website built with semantic HTML5 and modern CSS3. 
+                            Features smooth scrolling, hover animations, and mobile-first design approach.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://via.placeholder.com/400x250/8b5cf6/ffffff?text=E-Commerce+Platform" 
+                             alt="E-Commerce Platform">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Live</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            Full-stack e-commerce application with product catalog, shopping cart, and user authentication. 
+                            Built with HTML, CSS, JavaScript frontend and Java Spring Boot backend.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Spring Boot</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </article>
+
+                <!-- Project Card 3 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://via.placeholder.com/400x250/ec4899/ffffff?text=Task+Manager+App" 
+                             alt="Task Manager Application">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Live</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Task Manager App</h3>
+                        <p class="project-description">
+                            Interactive task management application with add, edit, delete, and filter functionalities. 
+                            Clean UI with CSS Grid layout, local storage support, and smooth animations.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CSS Grid</span>
+                            <span class="tag">LocalStorage</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </article>
+
+                <!-- Project Card 4 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://via.placeholder.com/400x250/10b981/ffffff?text=Blog+Platform" 
+                             alt="Blog Platform">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Live</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Blog Platform</h3>
+                        <p class="project-description">
+                            Dynamic blog platform with article management, comments, and categories. 
+                            Responsive design with dark mode support and advanced filtering options.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </article>
+
+                <!-- Project Card 5 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://via.placeholder.com/400x250/f59e0b/ffffff?text=Weather+App" 
+                             alt="Weather Application">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Live</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Weather Application</h3>
+                        <p class="project-description">
+                            Real-time weather application with location-based forecasts and detailed analytics. 
+                            Integrates third-party APIs with interactive charts and animations.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">API Integration</span>
+                            <span class="tag">Charts</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </article>
+
+                <!-- Project Card 6 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="https://via.placeholder.com/400x250/6366f1/ffffff?text=Social+Network" 
+                             alt="Social Network">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Live</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Social Network</h3>
+                        <p class="project-description">
+                            Social networking platform with user profiles, messaging, and feed system. 
+                            Implements real-time notifications and follows best practices for security.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Full Stack</span>
+                            <span class="tag">WebSockets</span>
+                            <span class="tag">Authentication</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Project</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss your next project or opportunity</p>
+
+            <div class="contact-wrapper">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <strong>Email:</strong>
+                        <p><a href="mailto:rohit@example.com">rohit@example.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Phone:</strong>
+                        <p><a href="tel:+91-9876543210">+91-9876543210</a></p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Location:</strong>
+                        <p>India</p>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="LinkedIn">LinkedIn</a>
+                        <a href="#" class="social-icon" title="GitHub">GitHub</a>
+                        <a href="#" class="social-icon" title="Twitter">Twitter</a>
+                        <a href="#" class="social-icon" title="Instagram">Instagram</a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact-form" action="#" method="POST" novalidate>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Your Full Name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="your.email@example.com"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject" 
+                            placeholder="What's this about?"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="6" 
+                            placeholder="Your message here..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="section-container">
+            <div class="footer-content">
+                <!-- Footer About -->
+                <div class="footer-section">
+                    <h4>Rohit</h4>
+                    <p>Creative developer crafting beautiful and functional web experiences.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Links -->
+                <div class="footer-section">
+                    <h4>Follow Me</h4>
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-link">LinkedIn</a>
+                        <a href="#" class="footer-social-link">GitHub</a>
+                        <a href="#" class="footer-social-link">Twitter</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rohit. All Rights Reserved. | Designed & Built with care.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

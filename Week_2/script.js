@@ -53,6 +53,17 @@ document.addEventListener('DOMContentLoaded', function() {
     if (materialFile) {
         materialFile.addEventListener('change', handleFileSelect);
     }
+
+    // Signup toggle & handlers
+    const showSignup = document.getElementById('showSignup');
+    const cancelSignup = document.getElementById('cancelSignup');
+    const signupForm = document.getElementById('signupForm');
+    if (showSignup) showSignup.addEventListener('click', function(e){ e.preventDefault(); toggleSignup(true); });
+    if (cancelSignup) cancelSignup.addEventListener('click', function(e){ e.preventDefault(); toggleSignup(false); });
+    if (signupForm) signupForm.addEventListener('submit', handleSignup);
+
+    // Auto-login if user saved in storage
+    autoLoginIfRemembered();
 });
 
 function handleLogin(event) {
@@ -60,14 +71,32 @@ function handleLogin(event) {
     
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    
+    const remember = document.getElementById('remember') && document.getElementById('remember').checked;
+
     // Basic validation
     if (!email || !password) {
         showAlert('Please fill in all fields', 'error');
         return;
     }
+    // Check registered users
+    const users = getStoredUsers();
+    const found = users.find(u => u.email.toLowerCase() === email.toLowerCase());
 
-    // Simulate login (in real app, this would call API)
+    if (found) {
+        if (found.password !== password) {
+            showAlert('Incorrect password', 'error');
+            return;
+        }
+
+        // Successful login for registered user
+        setCurrentUser(found, remember);
+        showAlert('Login successful!', 'success');
+        switchPage('dashboardPage');
+        toggleSignup(false);
+        return;
+    }
+
+    // Fallback: allow simple email-based login when no registered user exists
     if (email.includes('@')) {
         appState.isLoggedIn = true;
         appState.currentFaculty = {
@@ -76,17 +105,121 @@ function handleLogin(event) {
             email: email
         };
 
-        // Update UI
-        const facultyName = document.getElementById('facultyName');
-        if (facultyName) {
-            facultyName.textContent = appState.currentFaculty.name;
+        // Store as current user if remember checked
+        if (remember) {
+            const guest = { id: appState.currentFaculty.id, name: appState.currentFaculty.name, email: appState.currentFaculty.email };
+            localStorage.setItem('fms_currentUser', JSON.stringify(guest));
         }
 
-        // Switch to dashboard
+        const facultyName = document.getElementById('facultyName');
+        if (facultyName) facultyName.textContent = appState.currentFaculty.name;
+
         switchPage('dashboardPage');
         showAlert('Login successful!', 'success');
     } else {
         showAlert('Invalid email format', 'error');
+    }
+}
+
+// Toggle visibility between login and signup
+function toggleSignup(show) {
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+    const signupToggle = document.querySelector('.signup-toggle');
+    if (!signupForm || !loginForm) return;
+    if (show) {
+        signupForm.style.display = '';
+        loginForm.style.display = 'none';
+        if (signupToggle) signupToggle.style.display = 'none';
+    } else {
+        signupForm.style.display = 'none';
+        loginForm.style.display = '';
+        if (signupToggle) signupToggle.style.display = '';
+    }
+}
+
+// Handle signup form submission
+function handleSignup(event) {
+    event.preventDefault();
+    const name = document.getElementById('signupName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
+    const password = document.getElementById('signupPassword').value;
+    const confirm = document.getElementById('signupConfirm').value;
+
+    if (!name || !email || !password || !confirm) {
+        showAlert('Please fill in all fields', 'error');
+        return;
+    }
+
+    if (password !== confirm) {
+        showAlert('Passwords do not match', 'error');
+        return;
+    }
+
+    const users = getStoredUsers();
+    if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
+        showAlert('An account with this email already exists', 'error');
+        return;
+    }
+
+    const user = {
+        id: 'FAC-' + generateId(),
+        name: name,
+        email: email,
+        password: password
+    };
+
+    users.push(user);
+    saveStoredUsers(users);
+
+    // Auto-login and remember by default after signup
+    setCurrentUser(user, true);
+    showAlert('Account created and logged in', 'success');
+    switchPage('dashboardPage');
+    document.getElementById('signupForm').reset();
+}
+
+// Persistence helpers
+function getStoredUsers() {
+    try {
+        return JSON.parse(localStorage.getItem('fms_users') || '[]');
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveStoredUsers(users) {
+    localStorage.setItem('fms_users', JSON.stringify(users));
+}
+
+function setCurrentUser(user, remember = false) {
+    appState.isLoggedIn = true;
+    appState.currentFaculty = { id: user.id, name: user.name, email: user.email };
+    const facultyName = document.getElementById('facultyName');
+    if (facultyName) facultyName.textContent = user.name;
+
+    const storageUser = { id: user.id, name: user.name, email: user.email };
+    if (remember) {
+        localStorage.setItem('fms_currentUser', JSON.stringify(storageUser));
+        sessionStorage.removeItem('fms_currentUser');
+    } else {
+        sessionStorage.setItem('fms_currentUser', JSON.stringify(storageUser));
+    }
+}
+
+function autoLoginIfRemembered() {
+    try {
+        const saved = JSON.parse(localStorage.getItem('fms_currentUser') || sessionStorage.getItem('fms_currentUser') || 'null');
+        if (saved && saved.email) {
+            appState.isLoggedIn = true;
+            appState.currentFaculty = { id: saved.id || 'FAC-000', name: saved.name || extractNameFromEmail(saved.email), email: saved.email };
+            const facultyName = document.getElementById('facultyName');
+            if (facultyName) facultyName.textContent = appState.currentFaculty.name;
+            switchPage('dashboardPage');
+            showAlert('Welcome back, ' + appState.currentFaculty.name, 'success');
+        }
+    } catch (e) {
+        // ignore
     }
 }
 
