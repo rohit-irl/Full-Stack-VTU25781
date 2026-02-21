@@ -8,7 +8,7 @@
 // ============================================
 
 let currentStep = 1;
-const totalSteps = 3;
+const totalSteps = 4;
 let darkModeEnabled = false;
 
 // Form and main elements
@@ -23,6 +23,7 @@ const prevBtn = document.getElementById('prevBtn');
 const progressFill = document.getElementById('progressFill');
 const progressSteps = document.querySelectorAll('.progress-step');
 const darkModeToggle = document.getElementById('darkModeToggle');
+const editBtn = document.getElementById('editBtn');
 
 // Input fields
 const nameInput = document.getElementById('name');
@@ -106,6 +107,9 @@ function initializeEventListeners() {
 
     // Dark mode toggle
     darkModeToggle.addEventListener('click', toggleDarkMode);
+
+    // Edit button on review screen
+    editBtn.addEventListener('click', handleEditClick);
 
     // Save form data on input
     [nameInput, emailInput, phoneInput, courseSelect, passwordInput].forEach((input) => {
@@ -442,9 +446,16 @@ function handleSubmit(e) {
 }
 
 /**
- * Show success message animation
+ * Show success message animation with user name
  */
 function showSuccessMessage() {
+    // Get user name
+    const userName = nameInput.value || 'Student';
+    
+    // Update success message text
+    const successText = successMessage.querySelector('.success-text');
+    successText.innerHTML = `<strong>Registration Successful! 🎉</strong><br>Welcome, ${userName}!`;
+    
     successMessage.classList.add('active');
 
     // Auto-hide success message after 5 seconds
@@ -483,6 +494,14 @@ function resetForm() {
     // Reset password input type
     passwordInput.type = 'password';
     togglePasswordBtn.textContent = '👁️';
+
+    // Clear localStorage
+    localStorage.removeItem('studentFormData');
+
+    // Reset step to 1
+    currentStep = 1;
+    updateFormStep();
+    updateProgressBar();
 
     // Focus on name input
     nameInput.focus();
@@ -540,6 +559,12 @@ function handleNextStep() {
     // Move to next step
     if (currentStep < totalSteps) {
         currentStep++;
+        
+        // Display review data on review step
+        if (currentStep === totalSteps) {
+            displayReviewData();
+        }
+        
         updateFormStep();
         updateProgressBar();
         saveFormDataToLocalStorage();
@@ -633,6 +658,45 @@ function loadDarkModePreference() {
         document.body.classList.add('dark-mode');
         darkModeToggle.textContent = '☀️';
     }
+}
+
+// ============================================
+// REVIEW SCREEN FUNCTIONS
+// ============================================
+
+/**
+ * Display all user data on review screen
+ */
+function displayReviewData() {
+    // Get course name from selected option
+    const selectedCourseOption = courseSelect.options[courseSelect.selectedIndex];
+    const courseName = selectedCourseOption.text;
+
+    // Get gender label
+    const selectedGender = document.querySelector('input[name="gender"]:checked');
+    const genderLabel = selectedGender ? selectedGender.nextElementSibling.textContent : '-';
+
+    // Populate review fields
+    document.getElementById('reviewName').textContent = nameInput.value || '-';
+    document.getElementById('reviewEmail').textContent = emailInput.value || '-';
+    document.getElementById('reviewPhone').textContent = phoneInput.value || '-';
+    document.getElementById('reviewGender').textContent = genderLabel;
+    document.getElementById('reviewCourse').textContent = courseName;
+    document.getElementById('reviewPassword').textContent = '••••••••'; // Always hide password
+}
+
+/**
+ * Handle edit button click - navigate back to step 1
+ */
+function handleEditClick() {
+    currentStep = 1;
+    updateFormStep();
+    updateProgressBar();
+    
+    // Auto-focus first input in step 1
+    setTimeout(() => {
+        nameInput.focus();
+    }, 100);
 }
 
 // ============================================

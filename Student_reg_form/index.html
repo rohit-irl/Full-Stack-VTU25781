@@ -38,6 +38,10 @@
                         <span class="step-number">3</span>
                         <span class="step-label">Security</span>
                     </div>
+                    <div class="progress-step" data-step="4">
+                        <span class="step-number">✓</span>
+                        <span class="step-label">Review</span>
+                    </div>
                 </div>
             </div>
         </header>
@@ -199,6 +203,59 @@
                 </p>
             </div>
 
+            <!-- STEP 4: Review & Confirm -->
+            <div class="form-step" data-step="4">
+                <h2 class="step-title">Review & Confirm</h2>
+                <p class="review-subtitle">Please review your information before submitting</p>
+                
+                <!-- Review Summary Card -->
+                <div class="review-summary">
+                    <div class="review-section">
+                        <h3 class="review-section-title">Personal Information</h3>
+                        <div class="review-field">
+                            <span class="review-label">Full Name:</span>
+                            <span class="review-value" id="reviewName">-</span>
+                        </div>
+                        <div class="review-field">
+                            <span class="review-label">Email:</span>
+                            <span class="review-value" id="reviewEmail">-</span>
+                        </div>
+                        <div class="review-field">
+                            <span class="review-label">Phone:</span>
+                            <span class="review-value" id="reviewPhone">-</span>
+                        </div>
+                    </div>
+
+                    <div class="review-section">
+                        <h3 class="review-section-title">Academic Information</h3>
+                        <div class="review-field">
+                            <span class="review-label">Gender:</span>
+                            <span class="review-value" id="reviewGender">-</span>
+                        </div>
+                        <div class="review-field">
+                            <span class="review-label">Course:</span>
+                            <span class="review-value" id="reviewCourse">-</span>
+                        </div>
+                    </div>
+
+                    <div class="review-section">
+                        <h3 class="review-section-title">Security</h3>
+                        <div class="review-field">
+                            <span class="review-label">Password:</span>
+                            <span class="review-value" id="reviewPassword">••••••••</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit and Submit Buttons -->
+                <div class="review-actions">
+                    <button type="button" class="edit-btn" id="editBtn">
+                        <span class="btn-icon">✎</span>
+                        <span class="btn-text">Edit Information</span>
+                    </button>
+                </div>
+            </div>
+
             <!-- Navigation Buttons -->
             <div class="form-navigation">
                 <button type="button" class="nav-btn prev-btn" id="prevBtn">
@@ -210,7 +267,7 @@
                     <span class="btn-icon">→</span>
                 </button>
                 <button type="submit" class="submit-btn" id="submitBtn" style="display: none;">
-                    <span class="btn-text">Register Now</span>
+                    <span class="btn-text">Confirm & Submit</span>
                     <span class="btn-icon">✓</span>
                 </button>
             </div>
