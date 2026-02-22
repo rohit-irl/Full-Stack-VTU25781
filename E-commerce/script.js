@@ -193,6 +193,11 @@ function showPage(pageName) {
         link.classList.add('active');
     }
 
+    // Render cart when navigating to cart page
+    if (pageName === 'cart') {
+        renderCart();
+    }
+
     window.scrollTo(0, 0);
     navMenu.classList.remove('active');
 }
