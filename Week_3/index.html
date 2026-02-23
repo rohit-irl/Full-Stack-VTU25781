@@ -225,6 +225,48 @@
             </div>
         </section>
 
+        <!-- Receipt Generator Section -->
+        <section id="receipt" class="receipt-section">
+            <div class="section-header">
+                <h2>Receipt Generator</h2>
+                <p class="section-subtitle">Calculate your total bill with tip using ES6</p>
+            </div>
+
+            <div class="receipt-container">
+                <div class="receipt-card">
+                    <h3>Bill Calculator</h3>
+                    
+                    <div class="input-group">
+                        <label for="priceInput">Price ($)</label>
+                        <input 
+                            type="number" 
+                            id="priceInput" 
+                            placeholder="Enter price (e.g., 50.00)" 
+                            min="0" 
+                            step="0.01"
+                            aria-label="Enter item price"
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="tipInput">Tip Amount ($)</label>
+                        <input 
+                            type="number" 
+                            id="tipInput" 
+                            placeholder="Enter tip (e.g., 10.00)" 
+                            min="0" 
+                            step="0.01"
+                            aria-label="Enter tip amount"
+                        >
+                    </div>
+
+                    <button class="generate-btn" id="generateReceiptBtn">Generate Receipt</button>
+
+                    <div class="receipt-output" id="receiptOutput" aria-live="polite" aria-atomic="true"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="contact-section">
             <div class="section-header">

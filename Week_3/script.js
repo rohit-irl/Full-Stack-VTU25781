@@ -389,6 +389,119 @@
     }
 
     // ================================================
+    // RECEIPT GENERATOR (ES6)
+    // ================================================
+
+    // Arrow function to generate receipt with validation
+    const generateReceipt = (price, tip) => {
+        // Validation: Check if inputs are valid numbers
+        if (typeof price !== 'number' || typeof tip !== 'number') {
+            return {
+                valid: false,
+                message: '❌ Error: Please enter valid numbers for price and tip.'
+            };
+        }
+
+        // Validation: Check if price is positive
+        if (price < 0) {
+            return {
+                valid: false,
+                message: '❌ Error: Price must be greater than or equal to zero.'
+            };
+        }
+
+        // Validation: Check if tip is positive
+        if (tip < 0) {
+            return {
+                valid: false,
+                message: '❌ Error: Tip must be greater than or equal to zero.'
+            };
+        }
+
+        // Calculate total
+        const total = price + tip;
+        const tipPercentage = price > 0 ? ((tip / price) * 100).toFixed(2) : 0;
+
+        // Format receipt using template literals
+        const receipt = `╔════════════════════════════╗
+║      RECEIPT GENERATOR      ║
+╚════════════════════════════╝
+
+Price:        $${price.toFixed(2)}
+Tip Amount:   $${tip.toFixed(2)} (${tipPercentage}%)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Total:        $${total.toFixed(2)}
+
+✓ Thank you for your purchase!`;
+
+        return {
+            valid: true,
+            message: receipt,
+            data: {
+                price: parseFloat(price.toFixed(2)),
+                tip: parseFloat(tip.toFixed(2)),
+                total: parseFloat(total.toFixed(2)),
+                tipPercentage: parseFloat(tipPercentage)
+            }
+        };
+    };
+
+    // Initialize Receipt Generator
+    function initReceiptGenerator() {
+        const receiptSection = document.getElementById('receipt');
+        if (!receiptSection) return;
+
+        const priceInput = document.getElementById('priceInput');
+        const tipInput = document.getElementById('tipInput');
+        const generateBtn = document.getElementById('generateReceiptBtn');
+        const receiptOutput = document.getElementById('receiptOutput');
+
+        // Event listener for button click
+        generateBtn?.addEventListener('click', () => {
+            // Get input values and convert to numbers
+            const price = parseFloat(priceInput?.value) || 0;
+            const tip = parseFloat(tipInput?.value) || 0;
+
+            console.log('Generate button clicked - Price:', price, 'Tip:', tip);
+
+            // Generate receipt
+            const result = generateReceipt(price, tip);
+            console.log('Receipt result:', result);
+
+            // Display receipt in DOM (not console)
+            if (receiptOutput) {
+                receiptOutput.innerHTML = ''; // Clear previous content
+                if (result.valid) {
+                    const preElement = document.createElement('pre');
+                    preElement.className = 'receipt-display';
+                    preElement.textContent = result.message;
+                    receiptOutput.appendChild(preElement);
+                    receiptOutput.classList.add('success');
+                    receiptOutput.classList.remove('error');
+                    console.log('Receipt displayed successfully');
+                } else {
+                    const errorElement = document.createElement('p');
+                    errorElement.className = 'receipt-error';
+                    errorElement.textContent = result.message;
+                    receiptOutput.appendChild(errorElement);
+                    receiptOutput.classList.add('error');
+                    receiptOutput.classList.remove('success');
+                }
+            }
+        });
+
+        // Allow Enter key to generate receipt
+        priceInput?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') generateBtn?.click();
+        });
+        tipInput?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') generateBtn?.click();
+        });
+
+        console.log('Receipt generator initialized');
+    }
+
+    // ================================================
     // INITIALIZATION
     // ================================================
 
@@ -418,6 +531,7 @@
         initCTAButton();
         initEventLinks();
         initScrollToTop();
+        initReceiptGenerator();
         initVotingComponent();
 
         console.log('TechFest Homepage initialized successfully');
