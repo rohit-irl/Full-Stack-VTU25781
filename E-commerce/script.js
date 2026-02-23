@@ -95,7 +95,7 @@ const products = [
         name: 'Mechanical Keyboard RGB',
         price: 7999,
         category: 'peripherals',
-        image: 'https://images.unsplash.com/photo-1587829191301-2ec6d4aaa56f?w=400&h=400&fit=crop',
+        image: 'https://via.placeholder.com/400x400/https://www.redragon.in/cdn/shop/products/K599.png?v=1628503097&width=2048/ff6b35?text=Mechanical+Keyboard',
         description: 'Cherry MX switches with RGB backlighting',
         featured: false,
         reviews: []
@@ -127,6 +127,128 @@ const products = [
         category: 'accessories',
         image: 'https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=400&h=400&fit=crop',
         description: 'Tempered glass for ultimate protection',
+        featured: false,
+        reviews: []
+    }
+    ,
+    {
+        id: 13,
+        name: 'Fitness Tracker Band',
+        price: 2999,
+        category: 'wearable',
+        image: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=400&h=400&fit=crop',
+        description: 'Lightweight band with heart-rate and sleep tracking',
+        featured: false,
+        reviews: []
+    },
+    {
+        id: 14,
+        name: 'Gaming Headset RGB',
+        price: 4999,
+        category: 'audio',
+        image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop',
+        description: 'Surround sound headset with noise-cancelling mic',
+        featured: false,
+        reviews: []
+    },
+    {
+        id: 15,
+        name: 'Smart LED Bulb (2-pack)',
+        price: 1299,
+        category: 'home',
+        image: 'https://via.placeholder.com/400x400/ffd700/333333?text=Smart+LED+Bulb',
+        description: 'Wi-Fi enabled bulbs with color and dimming',
+        featured: false,
+        reviews: []
+    },
+    {
+        id: 16,
+        name: 'Noise-Isolating Earbuds',
+        price: 2199,
+        category: 'audio',
+        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+        description: 'In-ear earbuds with deep bass and comfortable fit',
+        featured: false,
+        reviews: []
+    },
+    {
+        id: 17,
+        name: 'External SSD 1TB',
+        price: 8999,
+        category: 'storage',
+        image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=400&h=400&fit=crop',
+        description: 'Fast USB-C portable SSD for backups and transfers',
+        featured: true,
+        reviews: []
+    },
+    {
+        id: 18,
+        name: 'Fitness Yoga Mat',
+        price: 899,
+        category: 'fitness',
+        image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=400&fit=crop',
+        description: 'Non-slip cushioned mat for workouts and yoga',
+        featured: false,
+        reviews: []
+    },
+    {
+        id: 19,
+        name: 'Action Camera 4K',
+        price: 11999,
+        category: 'camera',
+        image: 'https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=400&h=400&fit=crop',
+        description: 'Rugged 4K action cam with waterproof housing',
+        featured: true,
+        reviews: []
+    },
+    {
+        id: 20,
+        name: 'Compact Projector',
+        price: 15999,
+        category: 'home',
+        image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=400&fit=crop',
+        description: 'Portable projector for home cinema and presentations',
+        featured: false,
+        reviews: []
+    },
+    {
+        id: 21,
+        name: 'Smart Doorbell Camera',
+        price: 6999,
+        category: 'home',
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
+        description: '1080p doorbell with motion alerts and two-way audio',
+        featured: false,
+        reviews: []
+    },
+    {
+        id: 22,
+        name: 'Wireless Charging Pad',
+        price: 999,
+        category: 'accessories',
+        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop',
+        description: 'Qi-certified fast wireless charger for smartphones',
+        featured: false,
+        reviews: []
+    }
+    ,
+    {
+        id: 23,
+        name: 'Smart Light Strip',
+        price: 1599,
+        category: 'home',
+        image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=400&h=400&fit=crop',
+        description: 'RGB LED strip with app control and music sync',
+        featured: false,
+        reviews: []
+    },
+    {
+        id: 24,
+        name: 'Bluetooth Tracker Tag',
+        price: 599,
+        category: 'accessories',
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=400&fit=crop',
+        description: 'Find lost keys and items with precise location alerts',
         featured: false,
         reviews: []
     }
@@ -235,7 +357,7 @@ function createProductCard(product) {
 
     card.innerHTML = `
         <div style="position: relative;">
-            <img src="${product.image}" alt="${product.name}" class="product-image">
+            <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x400?text=Image+Unavailable';">
             ${badge}
         </div>
         <div class="product-info">
