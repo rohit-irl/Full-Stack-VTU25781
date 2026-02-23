@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFest 2026 - Innovation Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>TechFest</h1>
+                <p class="tagline">Innovation Summit 2026</p>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Left Sidebar Navigation -->
+    <nav class="sidebar-nav" id="sidebarNav">
+        <ul class="nav-list">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#events" class="nav-link">Events</a></li>
+            <li><a href="#speakers" class="nav-link">Speakers</a></li>
+            <li><a href="#media" class="nav-link">Media</a></li>
+            <li><a href="#schedule" class="nav-link">Schedule</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">Welcome to TechFest 2026</h2>
+                <p class="hero-subtitle">Discover the Future of Technology & Innovation</p>
+                <button class="cta-button">Register Now</button>
+            </div>
+        </section>
+
+        <!-- Events Grid Section -->
+        <section id="events" class="events-section">
+            <div class="section-header">
+                <h2>Featured Events</h2>
+                <p class="section-subtitle">Explore our curated collection of tech talks and workshops</p>
+            </div>
+
+            <div class="events-grid">
+                <article class="event-card">
+                    <div class="event-icon">🤖</div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Discover cutting-edge AI applications and deep learning strategies for the future.</p>
+                    <a href="#" class="event-link">Learn More →</a>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-icon">☁️</div>
+                    <h3>Cloud Technologies</h3>
+                    <p>Master cloud computing, serverless architecture, and modern DevOps practices.</p>
+                    <a href="#" class="event-link">Learn More →</a>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-icon">🔐</div>
+                    <h3>Cybersecurity</h3>
+                    <p>Stay ahead with advanced security protocols and ethical hacking techniques.</p>
+                    <a href="#" class="event-link">Learn More →</a>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-icon">🌐</div>
+                    <h3>Web Development</h3>
+                    <p>Build responsive, modern web applications with latest frameworks and tools.</p>
+                    <a href="#" class="event-link">Learn More →</a>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-icon">📱</div>
+                    <h3>Mobile Apps</h3>
+                    <p>Create powerful cross-platform mobile applications for iOS and Android.</p>
+                    <a href="#" class="event-link">Learn More →</a>
+                </article>
+
+                <article class="event-card">
+                    <div class="event-icon">🚀</div>
+                    <h3>Blockchain & Web3</h3>
+                    <p>Explore decentralized technologies, smart contracts, and cryptocurrency.</p>
+                    <a href="#" class="event-link">Learn More →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Speakers Section -->
+        <section id="speakers" class="speakers-section">
+            <div class="section-header">
+                <h2>Keynote Speakers</h2>
+                <p class="section-subtitle">Industry leaders sharing their expertise</p>
+            </div>
+
+            <div class="speakers-grid">
+                <article class="speaker-card">
+                    <div class="speaker-avatar">👩‍💼</div>
+                    <h3>Dr. Sarah Chen</h3>
+                    <p class="speaker-title">AI Research Director</p>
+                    <p class="speaker-bio">Leading innovations in machine learning and neural networks.</p>
+                </article>
+
+                <article class="speaker-card">
+                    <div class="speaker-avatar">👨‍💻</div>
+                    <h3>James Richardson</h3>
+                    <p class="speaker-title">Cloud Architect</p>
+                    <p class="speaker-bio">Expert in scalable infrastructure and cloud solutions.</p>
+                </article>
+
+                <article class="speaker-card">
+                    <div class="speaker-avatar">👩‍🔬</div>
+                    <h3>Prof. Maria Garcia</h3>
+                    <p class="speaker-title">Security Specialist</p>
+                    <p class="speaker-bio">Pioneer in cybersecurity and threat intelligence.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media" class="media-section">
+            <div class="section-header">
+                <h2>Media Center</h2>
+                <p class="section-subtitle">Watch our promotional content and listen to highlights</p>
+            </div>
+
+            <div class="media-container">
+                <!-- Promotional Video -->
+                <article class="media-card">
+                    <h3>TechFest 2025 Highlights</h3>
+                    <video controls class="promo-video">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-library/sample/BigBuckBunny.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Watch highlights from our previous event and get inspired for 2026!</p>
+                </article>
+
+                <!-- Background Audio -->
+                <article class="media-card">
+                    <h3>TechFest Podcast</h3>
+                    <audio controls class="promo-audio">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        Your browser does not support the audio tag.
+                    </audio>
+                    <p>Listen to expert discussions from our past events.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule" class="schedule-section">
+            <div class="section-header">
+                <h2>Event Schedule</h2>
+                <p class="section-subtitle">Two days of immersive tech experience</p>
+            </div>
+
+            <div class="schedule-container">
+                <article class="schedule-card">
+                    <h3>Day 1 - March 15, 2026</h3>
+                    <ul class="schedule-list">
+                        <li><span class="time">09:00 AM</span> - Opening Ceremony</li>
+                        <li><span class="time">10:30 AM</span> - Keynote: AI Revolution</li>
+                        <li><span class="time">12:00 PM</span> - Lunch Break</li>
+                        <li><span class="time">01:30 PM</span> - Parallel Workshops</li>
+                        <li><span class="time">04:00 PM</span> - Networking Session</li>
+                    </ul>
+                </article>
+
+                <article class="schedule-card">
+                    <h3>Day 2 - March 16, 2026</h3>
+                    <ul class="schedule-list">
+                        <li><span class="time">09:00 AM</span> - Workshop Sessions</li>
+                        <li><span class="time">11:00 AM</span> - Panel Discussion</li>
+                        <li><span class="time">12:30 PM</span> - Lunch Break</li>
+                        <li><span class="time">02:00 PM</span> - Demo Showcase</li>
+                        <li><span class="time">05:00 PM</span> - Closing Ceremony</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Aside - Quick Facts -->
+        <aside class="sidebar-facts">
+            <h3>Quick Facts</h3>
+            <ul class="facts-list">
+                <li>📍 Location: Convention Center, Tech City</li>
+                <li>📅 Dates: March 15-16, 2026</li>
+                <li>👥 Expected Attendees: 5,000+</li>
+                <li>🎤 Speakers: 50+ Industry Leaders</li>
+                <li>🎯 Sessions: 100+ Technical Talks</li>
+                <li>🏆 Awards: Best Innovation Prize</li>
+            </ul>
+        </aside>
+
+        <!-- Event Voting Section -->
+        <section id="voting" class="voting-section">
+            <div class="section-header">
+                <h2>Event Voting</h2>
+                <p class="section-subtitle">Rate your favorite TechFest events</p>
+            </div>
+            
+            <div class="voting-container">
+                <div class="voting-card">
+                    <h3 class="event-name">OpenAI Workshop</h3>
+                    <div class="voting-component">
+                        <div class="score-display" id="scoreDisplay">0</div>
+                        <div class="button-group">
+                            <button class="vote-btn vote-btn-decrement" id="decrementBtn" aria-label="Decrease vote score">−</button>
+                            <button class="vote-btn vote-btn-increment" id="incrementBtn" aria-label="Increase vote score">+</button>
+                        </div>
+                    </div>
+                    <button class="reset-btn" id="resetBtn">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p class="section-subtitle">Have questions? We'd love to hear from you</p>
+            </div>
+
+            <form class="contact-form" method="POST">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About TechFest</h4>
+                <p>TechFest is the premier annual gathering of technology innovators, developers, and thought leaders.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#speakers">Speakers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <p>
+                    <a href="#" class="social-link">Twitter</a> |
+                    <a href="#" class="social-link">LinkedIn</a> |
+                    <a href="#" class="social-link">GitHub</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TechFest. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
